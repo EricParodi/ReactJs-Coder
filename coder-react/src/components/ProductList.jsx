@@ -19,7 +19,7 @@ const ProductList = ({ products, addToCart }) => {
                 <Button variant="primary" onClick={() => addToCart(product)}>
                   Add to Cart
                 </Button>
-                {/* Agrega un enlace a los detalles de cada producto */}
+                {}
                 <Link to={`/products/${encodeURIComponent(product.name)}`}>
                   <Button variant="link">Detalles</Button>
                 </Link>
