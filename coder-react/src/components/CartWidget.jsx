@@ -3,15 +3,17 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { useCart } from './CartContext';
 
-const CartWidget = ({ cartItems }) => {
-  const cartItemCount = cartItems ? cartItems.length : 0;
+const CartWidget = () => {
+  const { cartItems } = useCart();
+  const cartItemCount = cartItems.length;
 
   const popover = (
     <Popover id="popover-basic">
-      <Popover.Header as="h3">Agregar al carrito</Popover.Header>
+      <Popover.Header as="h3">Productos en el carrito</Popover.Header>
       <Popover.Body>
-        {cartItems && cartItems.map((item, index) => (
+        {cartItems.map((item, index) => (
           <div key={index}>{item.name}</div>
         ))}
       </Popover.Body>
